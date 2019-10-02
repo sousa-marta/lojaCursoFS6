@@ -6,6 +6,8 @@
         ["nome" =>"Curso Fullstack","preco"=>"R$ 1.200,00", "duracao"=>"5 meses"], 
         ["nome" =>"Curso Marketing","preco"=>"R$ 1.000,00", "duracao"=>"4 meses"],
     ];
+
+    $categorias = ["Cursos", "Palestras", "Artigos","Outros"];
 ?>
 
 <!DOCTYPE html>
@@ -19,30 +21,44 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<header class="navbar">
-    <h1 id="logo"><?php echo $nomeSistema;?></h1>
-    <nav>
+<header>
+    <div class="navbar border-bottom border-white bg-dark">
+        <h1 id="logo"><?php echo $nomeSistema;?></h1>
+        <nav>
+            <ul class="nav">
+                <?php if(isset($usuario) && $usuario != []) { ?>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Cursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Olá, <?php echo $usuario['nome']; ?> </a>
+                    </li>
+                <?php } else { ?>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Cadastrar</a>
+                    </li>
+                <?php } ?>
+            </ul>
+        </nav>
+    </div>
+
+    <nav class="d-flex justify-content-center bg-secondary">
         <ul class="nav">
             <?php if(isset($usuario) && $usuario != []) { ?>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Cursos</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Olá, <?php echo $usuario['nome']; ?> </a>
-                </li>
-            <?php } else { ?>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Cadastrar</a>
-                </li>
+                <?php foreach($categorias as $categoria){ ?> 
+                    <li class="nav-item mx-2">
+                        <a href="#" class="nav-link text-white"><?php echo $categoria ?></a>
+                    </li>
+                <?php } ?>
             <?php } ?>
         </ul>
     </nav>
 </header>
 
-<main>
+<main class="bg-light">
     <section class="container-fluid">
         <div class="row justify-content-center">
 
