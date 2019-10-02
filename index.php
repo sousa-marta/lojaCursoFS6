@@ -1,6 +1,11 @@
 <?php
     $nomeSistema = "Cursos Ai!";
-    $usuario = ["nome" => "Marta"]
+    $usuario = ["nome" => "Marta"];
+
+    $produtos = [
+        ["nome" =>"curso fullstack","preco"=>"R$ 1.200,00", "duracao"=>"5 meses"], 
+        ["nome" =>"curso marketing","preco"=>"R$ 1.000,00", "duracao"=>"4 meses"],
+    ];
 ?>
 
 <!DOCTYPE html>
@@ -40,30 +45,19 @@
 <main>
     <section class="container-fluid">
         <div class="row justify-content-center">
+
+        <?php foreach($produtos as $produto){ ?>
             <div class="card col-12 col-lg-3 text-center m-4">
-                <h2 class="card-title">Título</h2>
+                <h2 class="card-title"><?php echo $produto['nome']; ?></h2>
                 <img src="img/curso1.jpg" alt="">
                 <div class="card-body">
-                    <h5 class="card-text">R$ 15,00</h5>
+                    <h5 class="card-text"><?php echo $produto['preco']; ?></h5>
                     <a href="#" class="btn btn-primary">Comprar</a>
                 </div>
             </div>
-            <div class="card col-12 col-lg-3 text-center m-4">
-                <h2 class="card-title">Título</h2>
-                <img src="img/curso1.jpg" alt="">
-                <div class="card-body">
-                    <h5 class="card-text">R$ 15,00</h5>
-                    <a href="#" class="btn btn-primary">Comprar</a>
-                </div>
-            </div>
-            <div class="card col-12 col-lg-3 text-center m-4">
-                <h2 class="card-title">Título</h2>
-                <img src="img/curso1.jpg" alt="">
-                <div class="card-body">
-                    <h5 class="card-text">R$ 15,00</h5>
-                    <a href="#" class="btn btn-primary">Comprar</a>
-                </div>
-            </div>
+        <?php } ?>
+
+            
         </div>
     </section>
 
