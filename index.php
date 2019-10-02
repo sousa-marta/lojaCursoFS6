@@ -3,8 +3,8 @@
     $usuario = ["nome" => "Marta"];
 
     $produtos = [
-        ["nome" =>"curso fullstack","preco"=>"R$ 1.200,00", "duracao"=>"5 meses"], 
-        ["nome" =>"curso marketing","preco"=>"R$ 1.000,00", "duracao"=>"4 meses"],
+        ["nome" =>"Curso Fullstack","preco"=>"R$ 1.200,00", "duracao"=>"5 meses"], 
+        ["nome" =>"Curso Marketing","preco"=>"R$ 1.000,00", "duracao"=>"4 meses"],
     ];
 ?>
 
@@ -46,18 +46,20 @@
     <section class="container-fluid">
         <div class="row justify-content-center">
 
-        <?php foreach($produtos as $produto){ ?>
-            <div class="card col-12 col-lg-3 text-center m-4">
-                <h2 class="card-title"><?php echo $produto['nome']; ?></h2>
-                <img src="img/curso1.jpg" alt="">
-                <div class="card-body">
-                    <h5 class="card-text"><?php echo $produto['preco']; ?></h5>
-                    <a href="#" class="btn btn-primary">Comprar</a>
+        <?php if(isset($produtos) && $produtos != []) { ?>
+            <?php foreach($produtos as $produto){ ?>
+                <div class="card col-12 col-lg-3 text-center m-4">
+                    <h2 class="card-title"><?php echo $produto['nome']; ?></h2>
+                    <img src="img/curso1.jpg" alt="">
+                    <div class="card-body">
+                        <h5 class="card-text"><?php echo $produto['preco']; ?></h5>
+                        <a href="#" class="btn btn-primary">Comprar</a>
+                    </div>
                 </div>
-            </div>
+            <?php } ?>
+        <?php } else { ?>
+            <h2>Não tem produtos cadastrados nessa sessão :(</h2>
         <?php } ?>
-
-            
         </div>
     </section>
 
