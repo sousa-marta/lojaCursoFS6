@@ -1,12 +1,6 @@
 <?php
     $nomeSistema = "Cursos Ai!";
     $usuario = ["nome" => "Marta"];
-
-    $produtos = [
-        ["nome" =>"Curso Fullstack","preco"=>"R$ 1.200,00", "duracao"=>"5 meses", "img"=>"img/curso1.jpg"], 
-        ["nome" =>"Curso Marketing","preco"=>"R$ 1.000,00", "duracao"=>"4 meses", "img"=>"img/curso2.jpg"],
-    ];
-
     $categorias = ["Cursos", "Palestras", "Artigos","Outros"];
 ?>
 
@@ -57,62 +51,33 @@
     </nav>
 </header>
 
-<main class="bg-light">
-    <section class="container-fluid">
-        <div class="row justify-content-center">
-
-        <?php if(isset($produtos) && $produtos != []) { ?>
-            <?php foreach($produtos as $produto){ ?>
-                <div class="card col-12 col-lg-3 text-center m-4">
-                    <h2 class="card-title"><?php echo $produto['nome']; ?></h2>
-                    <img src="<?php echo $produto["img"]; ?>" alt="">
-                    <div class="card-body">
-                        <h5 class="card-text"><?php echo $produto['preco']; ?></h5>
-                        <a href="carrinho.php?nomeProduto=<?php echo $produto['nome'];?>" class="btn btn-primary">Comprar</a>
+<main>
+    <section class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>Carrinho de Compras</h1>
+            </div>
+            <div class="col-12">
+                <div class="row card">
+                    <div class="col-12">
+                        <h3>Você está comprando o <?php echo $_GET['nomeProduto']; ?></h3>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <form class="d-flex flex-column p-3" method="post" action="sucesso.php">
+                            <input type="text" name="nomeCompleto" placeholder="Digite seu nome">
+                            <input type="text" name="cpf" placeholder="Digite seu cpf">
+                            <input type="number" name="cartao" placeholder="Digite o número do cartão">
+                            <input type="date" name="validadeCartao" placeholder="Digite a data de validade">
+                            <input type="password" name="codigoCartao" placeholder="Digite o CCV">
+                            <button type="submit" class="btn btn-success">Finalizar Compra</button>
+                        </form>
                     </div>
                 </div>
-            <?php } ?>
-        <?php } else { ?>
-            <h2>Não tem produtos cadastrados nessa sessão :(</h2>
-        <?php } ?>
+            </div>
+
         </div>
     </section>
-
-
-
-
-    <?php
-/*      $nome = "Marta";
-        $idade = 30;
-
-        //array numérico
-        $usuario = ["Marta","Sousa",30, ["trilha","pintura","netflix"]];
-
-        //array associativo
-        $usuarioDois = ["nome"=>"marta","sobrenome"=>"Sousa","idade"=>30];
-
-        echo $usuario[1];
-        echo $usuarioDois["sobrenome"];
-
-        echo "<br>";
-
-        var_dump($usuario);
-
-        echo $usuario[3][0];
-
-        echo "<br>";
-        //adicionando informações (fora da array)
-        $usuario[]="guitarra";
-        var_dump($usuario);
-        
-        //adicionando informações (dentro da array)
-        $usuario[3][]="passear";
-        echo "<br>";
-        var_dump($usuario);
-
-        echo "<br>";
-        echo "<h1>".$usuario[0]." ".$usuario[1]."<br>"."</h1>"; */
-    ?>
+   
     
 
 </main>
