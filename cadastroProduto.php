@@ -47,7 +47,14 @@
     }
 
     if($_POST){
-        echo cadastrarProduto($_POST['nomeProduto'],$_POST['descProduto'],$_POST['imgProduto'],$_POST['precoProduto']);
+        //salvando arquivo:
+        $nomeImg = $_FILES['imgProduto']['name']; //imgProduto é o name que deu lá no form. name é originário do $_Files
+        $localTmp = $_FILES['imgProduto']['tmp_name'];
+        $caminhoSalvo = 'img/'.$nomeImg;    //salva com o nome original do arquivo;
+
+        $deuCerto = move_uploaded_file($localTmp,$caminhoSalvo);
+
+        echo cadastrarProduto($_POST['nomeProduto'],$_POST['descProduto'],$caminhoSalvo,$_POST['precoProduto']);
     }
 
 
@@ -74,9 +81,9 @@
             <h1>Cadastro de Produto</h1>
         </div>
         <div class="col-12">
-            <form action="" method="post">
+            <form action="" method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                    <input type="text" class ="form-control" name="nomeProduto" placeholder="Nome do Produto" id="">
+                   <input type="text" class ="form-control" name="nomeProduto" placeholder="Nome do Produto" id="">
                 </div>
                 <div class="form-group">
                     <input type="text" class ="form-control" name="descProduto" placeholder="Descrição do Produto" id="">
