@@ -3,18 +3,51 @@
         $nomeArquivo = "produto.json";
 
         if(file_exists($nomeArquivo)){
+            //abrindo e pegando informações do arquivo que está em json, precisamos converter
+            $arquivo = file_get_contents($nomeArquivo);
+            $produtos = json_decode($arquivo, true);//se não colocar true ele converte em objeto (padrão);
+            var_dump($produtos);
+            //adicionando um novo produto na rray que esava dentro do produto:
+            $produtos[] = ["nome" => $nomeProduto, "desc" => $descProduto, "img" => $imgProduto, "preco" => $precoProduto];
+
+            //transformando array em json:
+            $json = json_encode($produtos);
+            //salvando o json dentro de um arquivo. se arquivo não existir, cria:
+            $certo = file_put_contents($nomeArquivo,$json);
+
+            if($certo){
+                return "Deu certo :D";
+            }else {
+                return "Deu erro :(";
+            }
+    
 
         } else {
             $produtos = [];
-            $produtos[] = ["nome" => $nomeProduto, "preco" => $precoProduto, "desc" => $descProduto, "img" => $imgProduto];
-            //ou poderia usar array_push
+            $produtos[] = ["nome" => $nomeProduto, "desc" => $descProduto, "img" => $imgProduto, "preco" => $precoProduto];
+            //ou poderia usar array_push (mas é mais custoso para rodar)
+            /* ou
+            $produtos = [
+                ["nome" => $nomeProduto, "preco" => $precoProduto, "desc" => $descProduto, "img" => $imgProduto];
+            ]; */
             
-            var_dump($produtos);
+            //transformando array em json:
+            $json = json_encode($produtos);
+            //salvando o json dentro de um arquivo. se arquivo não existir, cria:
+            $certo = file_put_contents($nomeArquivo,$json);
+
+            if($certo){
+                return "Deu certo :D";
+            }else {
+                return "Deu erro :(";
+            }
+
+            // var_dump($json);
         }
     }
 
     if($_POST){
-        cadastrarProduto($_POST['nomeProduto'],$_POST['descProduto'],$_POST['imgProduto'],$_POST['precoProduto']);
+        echo cadastrarProduto($_POST['nomeProduto'],$_POST['descProduto'],$_POST['imgProduto'],$_POST['precoProduto']);
     }
 
 
