@@ -1,6 +1,7 @@
 <?php
+session_start(); //precisa sempre quando for usar infos da sessão
     $nomeSistema = "Cursos Ai!";
-    $usuario = ["nome" => "Marta"];
+    $usuario = isset($_SESSION["usuario"]) ? $_SESSION["usuario"] : [];
 
     $nomeArquivo = "produto.json";
     $produtos = json_decode(file_get_contents($nomeArquivo), true);
