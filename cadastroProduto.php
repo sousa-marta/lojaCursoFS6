@@ -50,9 +50,10 @@
         //salvando arquivo:
         $nomeImg = $_FILES['imgProduto']['name']; //imgProduto é o name que deu lá no form. name é originário do $_Files
         $localTmp = $_FILES['imgProduto']['tmp_name'];
-        $caminhoSalvo = 'img/'.$nomeImg;    //salva com o nome original do arquivo;
+        $dataAtual = date("d-m-y");
+        $caminhoSalvo = 'img/'.$dataAtual.$nomeImg;    //salva com o nome original do arquivo. Para mudar o nome ."nomeDiferente.png" (pegar a extensão do arquivo, tem que ser a mesma)
 
-        $deuCerto = move_uploaded_file($localTmp,$caminhoSalvo);
+        $deuCerto = move_uploaded_file($localTmp, $caminhoSalvo);
 
         echo cadastrarProduto($_POST['nomeProduto'],$_POST['descProduto'],$caminhoSalvo,$_POST['precoProduto']);
     }

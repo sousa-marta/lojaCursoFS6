@@ -1,9 +1,3 @@
-<?php
-    $nomeSistema = "Cursos Ai!";
-    $usuario = ["nome" => "Marta"];
-    $categorias = ["Cursos", "Palestras", "Artigos","Outros"];
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
