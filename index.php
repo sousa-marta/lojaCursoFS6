@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <?php include_once("header.php"); ?> <!-- puxando o header -->
+    <?php include_once("includes/header.php"); ?> <!-- puxando o header -->
     <main class="bg-light">
         <section class="container-fluid">
             <div class="row justify-content-center">
@@ -19,7 +19,7 @@
                 <?php foreach($produtos as $produto){ ?>
                     <div class="card col-12 col-lg-3 text-center m-4">
                         <h2 class="card-title"><?php echo $produto['nome']; ?></h2>
-                        <img src="<?php echo $produto["img"]; ?>" alt="">
+                        <img class="card-img" src="<?php echo $produto["img"]; ?>" alt="">
                         <div class="card-body">
                             <h5 class="card-text"><?php echo $produto['preco']; ?></h5>
                             <a href="carrinho.php?nomeProduto=<?php echo $produto['nome'];?>" class="btn btn-primary">Comprar</a>

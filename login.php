@@ -36,7 +36,7 @@ if($_POST){  //dá true se tiver conteúdo, se não, da false
 
 </head>
 <body>
-    <?php include_once "header.php"; ?>
+    <?php include_once "includes/header.php"; ?>
     <main class="d-flex justify-content-center align-item-center p-5">
         <form action="login.php" method="post" class="card p-2">
             <div class="form-group">

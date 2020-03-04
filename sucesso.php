@@ -10,7 +10,7 @@
 </head>
 <body>
     <?php 
-        include_once("header.php");
+        include_once("includes/header.php");
         include_once("config/validacoes.php");
 
         $nomeUsuario = $_POST['nomeCompleto'];
@@ -21,6 +21,7 @@
 
         if ( count($erros) == 0 ) {
             echo "<h1> Olá, $nomeUsuario, a sua compra foi realizada com sucesso :D </h1>" ;
+            echo '<a href="index.php"> Retorne para cursos </a>'; //aqui poderia 'abrir' html
         } else {
             foreach ($erros as $mensagemDeErro) {
                 echo "<h3>$mensagemDeErro</h3>";

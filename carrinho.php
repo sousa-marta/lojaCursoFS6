@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <?php include_once("header.php"); ?>
+    <?php include_once("includes/header.php"); ?>
     <main>
         <section class="container">
             <div class="row">
@@ -24,11 +24,11 @@
                         </div>
                         <div class="col-lg-6 col-md-6">
                             <form class="d-flex flex-column p-3" method="post" action="sucesso.php">
-                                <input type="text" name="nomeCompleto" placeholder="Digite seu nome">
-                                <input type="text" name="cpf" placeholder="Digite seu cpf">
-                                <input type="number" name="cartao" placeholder="Digite o número do cartão">
-                                <input type="date" name="validadeCartao" placeholder="Digite a data de validade">
-                                <input type="password" name="codigoCartao" placeholder="Digite o CCV">
+                                Nome no Cartão<input type="text" name="nomeCompleto" placeholder="Digite seu nome">
+                                CPF<input type="text" name="cpf" placeholder="Digite seu cpf">
+                                Número Cartão<input type="number" name="cartao" placeholder="Digite o número do cartão">
+                                Data Validade<input type="date" name="validadeCartao" placeholder="Digite a data de validade">
+                                Dígito Verificador<input type="password" name="codigoCartao" placeholder="Digite o CCV">
                                 <button type="submit" class="btn btn-success">Finalizar Compra</button>
                             </form>
                         </div>

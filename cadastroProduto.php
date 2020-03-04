@@ -57,8 +57,6 @@
 
         echo cadastrarProduto($_POST['nomeProduto'],$_POST['descProduto'],$caminhoSalvo,$_POST['precoProduto']);
     }
-
-
 ?>
 
 
@@ -75,7 +73,7 @@
 </head>
 <body>
     
-<?php include_once("header.php"); ?>
+<?php include_once("includes/header.php"); ?>
 <main class="container">
     <div class="row">
         <div class="col-12">

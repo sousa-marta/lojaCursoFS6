@@ -14,7 +14,7 @@ function validaNome($nome) {
 function validaCPF($cpf) {
     global $erros;
     if(strlen($cpf) != 11) {
-        array_push($erros, "Preencha o CPF com apenas números");
+        array_push($erros, "Preencha o CPF com apenas números - 11 dígitos");
     }
 }
 ?>
